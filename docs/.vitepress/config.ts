@@ -6,7 +6,6 @@ import escookConfig from '@escook/vitepress-theme/config'
 export default defineConfig({
   // **核心改动：通过 extends 继承主题配置**
   extends: escookConfig, 
-  ignoreDeadLinks: true,
   base: '/MinecraftServerWiki/',
   // 网站基本信息（会覆盖继承主题中的同名配置）
   title: '幻想之境 RPG', // 网站标题
