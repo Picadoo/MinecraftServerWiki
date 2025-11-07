@@ -21,7 +21,7 @@ export default defineConfig({
       list: [
            { name: 'Young Love', src: '/sounds/summerplace.ogg' },
           { name: 'where no one goes', src: '/sounds/wherenoonegoes.ogg' },
-          { name: '薄荷', src: '/sounds/薄荷.ogg' }
+          { name: '薄荷', src: '/sounds/bohe.ogg' }
          ] ,
     
       autoplay: true
