@@ -19,9 +19,9 @@ export default defineConfig({
     //@ts-ignore
     musicBall: {
       list: [
-           { name: 'Young Love', src: '/sounds/summerplace.ogg' },
-          { name: 'where no one goes', src: '/sounds/wherenoonegoes.ogg' },
-          { name: '薄荷', src: '/sounds/bohe.ogg' }
+           { name: 'Young Love', src: './sounds/summerplace.ogg' },
+          { name: 'where no one goes', src: './sounds/wherenoonegoes.ogg' },
+          { name: '薄荷', src: './sounds/bohe.ogg' }
          ] ,
     
       autoplay: true
