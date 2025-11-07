@@ -1,0 +1,132 @@
+/* 标题下划线移除 (保持不变) */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+  text-decoration-line: none !important; 
+  background: none !important;
+  border-bottom: none !important; 
+}
+
+/* ================================================= */
+/* 🎨 为浅色模式特色功能框手动添加颜色变量 (新增!) */
+/* ================================================= */
+
+.VPHomeFeatures .VPFeature:nth-child(1) {
+    --color: var(--decoration-color-blue);
+}
+.VPHomeFeatures .VPFeature:nth-child(2) {
+    --color: var(--decoration-color-yellow);
+}
+.VPHomeFeatures .VPFeature:nth-child(3) {
+    --color: var(--decoration-color-green);
+}
+.VPHomeFeatures .VPFeature:nth-child(4) {
+    --color: var(--decoration-color-red);
+}
+
+/* ================================================= */
+/* ✨ 浅色/默认模式下的光晕悬停特效 (已修正光晕颜色引用) */
+/* ================================================= */
+
+.VPHomeFeatures .VPFeature { 
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  /* 增加边框，让它看起来像深色模式那样有包裹感 */
+  border: 1px solid var(--el-border-color-light);
+}
+
+/* 浅色模式光晕效果 */
+.VPHomeFeatures .VPFeature:before {
+  content: "";
+  display: block;
+  position: absolute;
+  /* !!! 关键修正: 现在使用 var(--color) 来引用上面定义的动态颜色 !!! */
+  background: radial-gradient(var(--color), transparent, transparent); 
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%,-50%);
+  width: 700px;
+  height: 700px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/* 浅色模式悬停激活 */
+.VPHomeFeatures .VPFeature:hover:before {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+/* 浅色模式遮罩层：使用更透明的浅色遮罩 */
+.VPHomeFeatures .VPFeature:after { 
+  position: absolute;
+  content: "";
+  display: block;
+  /* 使用高透明度的白色，让光晕更明显 */
+  background-color: rgba(255, 255, 255, 0.1); 
+  z-index: 0;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  border-radius: 10px;
+}
+
+.VPHomeFeatures .VPFeature > .box {
+  position: relative; 
+  z-index: 1;
+}
+
+/* ================================================= */
+/* 🌑 深色模式下的光晕悬停特效 (保持不变) */
+/* ================================================= */
+
+.dark .VPHomeFeatures .VPFeature { 
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  /* 原版深色模式下，特效定义了边框动效，但我们只聚焦悬停光晕 */
+}
+
+/* 深色模式光晕效果：恢复为原版中的主题蓝 */
+.dark .VPHomeFeatures .VPFeature:before {
+  content: "";
+  display: block;
+  position: absolute;
+  /* 恢复到您原版深色模式下的效果，它依赖外部设置的 --color */
+  background: radial-gradient(var(--color, blue), transparent, transparent); 
+  left: var(--x); 
+  top: var(--y);
+  transform: translate(-50%,-50%);
+  width: 700px;
+  height: 700px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/* 深色模式悬停激活 */
+.dark .VPHomeFeatures .VPFeature:hover:before {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+/* 深色模式遮罩层：恢复原版深色 */
+.dark .VPHomeFeatures .VPFeature:after {
+  position: absolute;
+  content: "";
+  display: block;
+  background-color: #222c;
+  z-index: 0;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  border-radius: 10px;
+}
+
+.dark .VPHomeFeatures .VPFeature > .box {
+  position: relative; 
+  z-index: 1;
+}
